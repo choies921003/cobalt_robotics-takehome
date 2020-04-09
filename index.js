@@ -36,4 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   resetbutton.onclick = resetbuttonHandler;
 
+  //filterButtonHandler function will handle when any of the filter button clicked it will excute.
+  const filterButtonHandler = e =>  {
+    Caman("#image", () => {
+      this.revert(false);
+      this[event.target.id]().render();
+    });
+  };
+  const filterbuttons = document.querySelectorAll(".filter");
+  filterbuttons.forEach(button => {
+    button.onclick = filterButtonHandler;
+  });
+  
 }, false);
