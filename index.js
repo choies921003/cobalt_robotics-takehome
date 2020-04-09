@@ -72,5 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   const preview = document.getElementById("preview");
   preview.onclick = previewCrop;
-  
+
+  //cropImage function will crop photo based on all the number from width, height, x, y input of crop area.
+  const cropImage = () => {
+    const width = Number(document.getElementById("width").value);
+    const height = Number(document.getElementById("height").value);
+    const x = Number(document.getElementById("x").value);
+    const y = Number(document.getElementById("y").value);
+    Caman("#image", () => {
+      this.crop(width, height, x, y);
+      this.render();
+    });
+  };
+  const crop = document.getElementById("crop");
+  crop.onclick = cropImage;
+
 }, false);
