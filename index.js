@@ -9,5 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
    imageElement.setAttribute("src", URL.createObjectURL(imageFile));
  };
  loadImage.onchange = loadInputHandler;
- 
+
+ //changeSliderHandler function will handle slider effects. When slider changes function will excute. line 20 is getting what slider I am using and getting value of slider.
+ const changeSliderHandler = e => {
+  Caman("#image", function renderCaman() {
+    this.revert(false);
+    this[e.target.name](e.target.value).render();
+  });
+};
+
+//ranges valuable will get all of the slider and storing them into list. forEach mathod is applying slide effect whenever a slider is moved.
+  const ranges = document.querySelectorAll('input[type="range"]');
+  ranges.forEach(range => {
+    range.onchange = changeSliderHandler;
+  });
+  
 }, false);
