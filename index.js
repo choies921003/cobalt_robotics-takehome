@@ -47,5 +47,16 @@ document.addEventListener("DOMContentLoaded", () => {
   filterbuttons.forEach(button => {
     button.onclick = filterButtonHandler;
   });
-  
+
+  //saveButtonHandler function will handle when any of the save button clicked it will excute.
+  const saveButton = document.getElementById("save-button");
+  const saveButtonHandler = e => {
+    Caman("#image", () => {
+      this.render(()=>{
+        this.save("image.png");
+      });
+    });
+  };
+  saveButton.onclick = saveButtonHandler;
+
 }, false);
