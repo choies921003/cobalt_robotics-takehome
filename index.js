@@ -59,4 +59,18 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   saveButton.onclick = saveButtonHandler;
 
+  //previewCrop function will collect all the number from width, height, x, y input and show preview of crop area.
+  const previewCrop = () => {
+    const width = Number(document.getElementById("width").value);
+    const height = Number(document.getElementById("height").value);
+    const x = Number(document.getElementById("x").value);
+    const y = Number(document.getElementById("y").value);
+    const canvas = document.getElementById("image");
+    const context = canvas.getContext("2d");
+    context.fillstyle = "rgba(0,0,0,0.5)";
+    context.fillRect(x, y, width, height);
+  };
+  const preview = document.getElementById("preview");
+  preview.onclick = previewCrop;
+  
 }, false);
