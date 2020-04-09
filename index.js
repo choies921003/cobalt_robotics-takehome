@@ -23,5 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
   ranges.forEach(range => {
     range.onchange = changeSliderHandler;
   });
-  
+
+  //resetbuttonHnader function will handle when reset button is clicked it will excute and set value to zero.
+  const resetbutton = document.getElementById("reset-button");
+  const resetbuttonHandler = e => {
+    ranges.forEach(range => {
+      range.value = 0;
+    });
+    Caman("#image", () => {
+      this.revert(true);
+    });
+  };
+  resetbutton.onclick = resetbuttonHandler;
+
 }, false);
